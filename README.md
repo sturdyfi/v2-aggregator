@@ -4,78 +4,29 @@ Sturdy V2 is a lending protocol based on a novel two-tier architecture. This rep
 
 # Dev Environment
 
-## Requirements
-
-This repository runs on [ApeWorx](https://www.apeworx.io/). A python based development tool kit.
-
-You will need:
- - Python 3.8 or later
- - Linux or macOS
- - Windows: Install Windows Subsystem Linux (WSL) with Python 3.8 or later
- - [Hardhat](https://hardhat.org/) installed globally
-
-## Installation
-
-Get the submodule
-
+Configure environment file (.env)
 ```
-git submodule update --recursive --init
-```
-Set up your python virtual environment.
-
-```
-python3.10 -m venv venv
-vi venv/bin/activate
-```
-Add the following environment variable in activate file
->WEB3_ALCHEMY_API_KEY=xxxxx
->
->export WEB3_ALCHEMY_API_KEY
-
-quit file and activate it.
-```
-source venv/bin/activate
+ALCHEMY_KEY="xxx"
 ```
 
-Install requirements.
-
+- Install
 ```
-python3 -m pip install -r requirements.txt
-yarn
+yarn install
 ```
 
-Fetch the ape plugins:
-
+- Compile
 ```
-ape plugins install .
-```
-
-## Compile
-
-Compile smart contracts with:
-
-```
-ape compile
-```
-Install the packages of the git submodule.
-```
-cd silo/sturdy-silo
-yarn
-```
-And make the .env file
-
-## Start a local node
-
-```
-cd silo/sturdy-silo
-yarn run node
+yarn compile
 ```
 
-## Deploy the smart contracts in the localhost network
-
+- Run the hardhat node on localhost.
 ```
-source venv/bin/activate
-ape run deploy
+FORK=main yarn hardhat node
+```
+
+- For test, run the following task 
+```
+yarn test
 ```
 
 # Aggregator
